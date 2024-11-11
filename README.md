@@ -1,32 +1,11 @@
-# Galiano 2023 Bioblitz
+# Galiano 2023 Bioblitz outcomes: vascular plants
 
 This project hosts a structure for building out and publishing a map-based scrollytelling
 interface for the Galiano 2023 Bioblitz.
 
 You can browse the published output of this project in these documents:
 
-* [Annelida - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Annelida.html#)
-* [Annelida - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Annelida-Reknitted.html#)
-* [Brachiopoda - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Brachiopoda.html#)a
-* [Brachiopoda - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Brachiopoda-Reknitted.html#)
-* [Chaetognatha - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Chaetognatha.html#)
-* [Chaetognatha - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Chaetognatha-Reknitted.html#)
-* [Cnidaria - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Cnidaria.html#)
-* [Cnidaria - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Cnidaria-Reknitted.html#)
-* [Ctenophora - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Ctenophora.html#)
-* [Ctenophora - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Ctenophora-Reknitted.html#)
-* [Fishes - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Fishes.html#)
-* [Fishes - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Fishes-Reknitted.html#)
-* [Mollusca - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Mollusca.html#)
-* [Mollusca - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Mollusca-Reknitted.html#)
-* [Nemertea - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Nemertea.html#)
-* [Nemertea - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Nemertea-Reknitted.html#)
-* [Platyhelminthes - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Platyhelminthes.html#)
-* [Platyhelminthes - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Platyhelminthes-Reknitted.html#)
-* [Sipuncula - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Sipuncula.html#)
-* [Sipuncula - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Sipuncula-Reknitted.html#)
-* [Porifera - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Porifera.html#)
-* [Porifera - Storymapping Reknitted into Scrollytelling Interface](https://imerss.github.io/galiano-bioblitz-2023/Porifera-Reknitted.html#)
+* [Galiano Bioblitz - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Galiano-BioBlitz-2023.html)
 
 This was built using R and R Markdown, using free tools such as git, R and R studio, and publish and host it for free using
 [GitHub Pages](https://pages.github.com/).
