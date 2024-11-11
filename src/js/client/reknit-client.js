@@ -138,6 +138,22 @@ maxwell.withSliderAnimation.bind = function (element, that, paneHandler, scrolly
     }, that.options.delay);
 };
 
+// AS has requested the region selection bar to appear in a special area above the taxonomy
+fluid.defaults("maxwell.regionSelectionBar.withHoist", {
+    gradeNames: "maxwell.widgetHandler",
+    listeners: {
+        "bindWidget.hoist": {
+            funcName: "maxwell.regionSelectionBar.hoist",
+            priority: "before:impl"
+        }
+    }
+});
+
+maxwell.regionSelectionBar.hoist = function (element, that, paneHandler) {
+    const target = paneHandler.container[0].querySelector(".fl-imerss-checklist-widgets");
+    target.appendChild(element);
+};
+
 fluid.defaults("maxwell.regionSelectionBar", {
     gradeNames: "maxwell.widgetHandler",
     listeners: {
@@ -173,7 +189,7 @@ maxwell.regionSelectionBar.bind = function (element, that, paneHandler) {
         const regionName = e.points[0].data.name;
         vizBinder.map.events.selectRegion.fire(null, regionName);
     });
-    // TODO: Parameterise a bit
+    // TODO: Parameterise a bit - depends on maxwell.regionSelectionBar.withHoist impl
     maxwell.makeResizableWidth(element, paneHandler, ".fl-imerss-checklist-outer");
 };
 
