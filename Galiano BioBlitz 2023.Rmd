@@ -1,0 +1,43 @@
+---
+title: "Galiano BioBlitz 2023 outcomes: vascular plants"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+source("scripts/loadData.R")
+library(tidyverse)
+records <- read.csv("tabular_data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv")
+summary <- read.csv("tabular_data/Galiano_Tracheophyta_review_summary_reviewed_2024-10-07-assigned_revised.csv")
+new <- summary %>% filter(str_detect(Reporting.Status, "new")) 
+confirmed <- summary %>% filter(Reporting.Status == 'confirmed') 
+reported <- summary %>% filter(Reporting.Status == 'reported') 
+observed <- summary %>% filter(Observation == 'observed') 
+```
+
+## Community science contributions
+
+Through the combined efforts of `r length(unique(records$recordedBy))` individuals, 
+the Hunterston Farms naturalist community has now documented a total of `r nrow(summary)` 
+vascular plant species. Based on search efforts over the last 
+decade, `r round((nrow(confirmed)/(nrow(confirmed)+nrow(reported))*100), digits = 0)` 
+percent of the historically reported plant diversity has been confirmed and `r nrow(new)` new species 
+reports added to the list. Community members have now 
+documented `r round((nrow(observed)/(nrow(summary))*100), digits = 0)` percent of the 
+plant diversity known to the region on iNaturalist.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+source("scripts/Plot_script.R")
+reportingStatusFig
+```
+
+## Authors
+
+Antranig Basman, Andrew Simon
+
+November 11th, 2024
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
