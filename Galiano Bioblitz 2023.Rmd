@@ -1,11 +1,12 @@
 ---
-title: "Galiano Bioblitz 2023 outcomes: vascular plants"
+title: "Galiano BioBlitz 2023 outcomes: vascular plants"
 output: html_document
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
 ---
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+source("scripts/loadData.R")
 library(tidyverse)
 records <- read.csv("tabular_data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv")
 summary <- read.csv("tabular_data/Galiano_Tracheophyta_review_summary_reviewed_2024-10-07-assigned_revised.csv")

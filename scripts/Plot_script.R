@@ -1,19 +1,6 @@
-library(tidyverse)
 library(plotly)
 
-# Source dependencies
-
-source("scripts/utils.R")
-
-# Read and summary
-
-summary <- read.csv("tabular_data/Galiano_Tracheophyta_review_summary_reviewed_2024-10-07-assigned_revised.csv")
-
-# Subset historic, confirmed and new records
-
-new <- summary %>% filter(str_detect(Reporting.Status, "new"))
-confirmed <- summary %>% filter(Reporting.Status == "confirmed")
-reported <- summary %>% filter(Reporting.Status == "reported")
+source("scripts/loadData.R")
 
 y <- c('records')
 confirmed.no <- c(nrow(confirmed))
@@ -23,7 +10,6 @@ new.no <- c(nrow(new))
 reporting.status <- data.frame(y, confirmed.no, historic.no, new.no)
 
 reportingStatusFig <- plot_ly(height = 140, reporting.status, x = ~confirmed.no, y = ~y, type = 'bar', orientation = 'h', name = 'confirmed',
-                      
                       marker = list(color = '#5a96d2',
                              line = list(color = '#5a96d2',
                                          width = 1)))
