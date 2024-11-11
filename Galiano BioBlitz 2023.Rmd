@@ -7,13 +7,6 @@ knit: (function(inputFile, encoding) {
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 source("scripts/loadData.R")
-library(tidyverse)
-records <- read.csv("tabular_data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv")
-summary <- read.csv("tabular_data/Galiano_Tracheophyta_review_summary_reviewed_2024-10-07-assigned_revised.csv")
-new <- summary %>% filter(str_detect(Reporting.Status, "new")) 
-confirmed <- summary %>% filter(Reporting.Status == 'confirmed') 
-reported <- summary %>% filter(Reporting.Status == 'reported') 
-observed <- summary %>% filter(Observation == 'observed') 
 ```
 
 ## Community science contributions
