@@ -11,14 +11,7 @@ source("scripts/loadData.R")
 
 ## Community science contributions
 
-Through the combined efforts of `r length(unique(records$recordedBy))` individuals, 
-the Hunterston Farms naturalist community has now documented a total of `r nrow(summary)` 
-vascular plant species. Based on search efforts over the last 
-decade, `r round((nrow(confirmed)/(nrow(confirmed)+nrow(reported))*100), digits = 0)` 
-percent of the historically reported plant diversity has been confirmed and `r nrow(new)` new species 
-reports added to the list. Community members have now 
-documented `r round((nrow(observed)/(nrow(summary))*100), digits = 0)` percent of the 
-plant diversity known to the region on iNaturalist.
+Members of the Hunterston Farm community have documented a total of `r nrow(summary)` vascular plant species since 2010, through the combined efforts of `r length(unique(records$recordedBy))` individuals. During the recent 2023 BioBlitz at Hunterston Farms, participants confirmed `r round((nrow(confirmed)/(nrow(confirmed)+nrow(reported))*100), digits = 0)` percent of the historically reported plant diversity and added `r nrow(new)` new species to the list. Of the `r nrow(reported)+nrow(confirmed)` reported species, `r nrow(reported)` species remained undetected after these recent search efforts, having not been observed since 2010.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 source("scripts/Plot_script.R")
