@@ -15,7 +15,7 @@ Members of the Hunterston Farm community have documented a total of `r nrow(summ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 source("scripts/Plot_script.R")
-reportingStatusFig
+stacked_bar_plot
 ```
 
 ## Authors

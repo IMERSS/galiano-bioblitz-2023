@@ -13,6 +13,8 @@ records <- read.csv("tabular_data/Galiano_Island_vascular_plant_records_consolid
 
 summary <- inner_join(x = originalSummary, y = filteredSummary, by = join_by(ID == id))
 
+full.summary <- read.csv("tabular_data/Galiano_Tracheophyta_review_summary_reviewed_2024-10-07-assigned_revised.csv")
+
 # Subset historic, confirmed and new records
 
 new <- summary %>% filter(str_detect(Reporting.Status, "new"))

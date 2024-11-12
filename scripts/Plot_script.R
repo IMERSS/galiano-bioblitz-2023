@@ -1,43 +1,49 @@
+library(dplyr)
 library(plotly)
 
+# Load data
 source("scripts/loadData.R")
 
-y <- c('records')
-confirmed.no <- c(nrow(confirmed))
-historic.no <- c(nrow(reported))
-new.no <- c(nrow(new))
+# Vector of plant families
+plant_families <- c("Pinaceae", "Sapindaceae", "Berberidaceae", "Fabaceae", "Asteraceae", 
+                    "Poaceae", "Lamiaceae", "Rosaceae", "Amaryllidaceae", "Betulaceae", 
+                    "Apiaceae", "Orobanchaceae", "Ericaceae", "Aspleniaceae", "Athyriaceae", 
+                    "Amaranthaceae", "Asparagaceae", "Brassicaceae", "Orchidaceae", "Cyperaceae", 
+                    "Caryophyllaceae", "Montiaceae", "Thymelaeaceae", "Ranunculaceae", 
+                    "Dryopteridaceae", "Onagraceae", "Equisetaceae", "Geraniaceae", "Phrymaceae", 
+                    "Liliaceae", "Rubiaceae", "Saxifragaceae", "Aquifoliaceae", "Caprifoliaceae", 
+                    "Juncaceae", "Araceae", "Primulaceae", "Malvaceae", "Boraginaceae", 
+                    "Celastraceae", "Pteridaceae", "Plantaginaceae", "Polypodiaceae", 
+                    "Dennstaedtiaceae", "Fagaceae", "Grossulariaceae", "Polygonaceae", 
+                    "Salicaceae", "Viburnaceae", "Crassulaceae", "Selaginellaceae", 
+                    "Blechnaceae", "Taxaceae", "Cupressaceae", "Melanthiaceae", "Violaceae", "Zosteraceae")
 
-reporting.status <- data.frame(y, confirmed.no, historic.no, new.no)
+# Combine all plant families' data in a single dataframe
+combined_data <- bind_rows(
+  confirmed %>% mutate(Status = 'confirmed'),
+  reported %>% mutate(Status = 'historical'),
+  new %>% mutate(Status = 'new')
+)
 
-reportingStatusFig <- plot_ly(height = 140, reporting.status, x = ~confirmed.no, y = ~y, type = 'bar', orientation = 'h', name = 'confirmed',
-                      marker = list(color = '#5a96d2',
-                             line = list(color = '#5a96d2',
-                                         width = 1)))
+# Filter data to include only selected plant families
+combined_data <- combined_data %>%
+  filter(Family %in% plant_families)
 
-# These names need to agree with those applied as labels to the map regions
-reportingStatusFig <- reportingStatusFig %>% add_trace(x = ~historic.no, name = 'historic',
-                         marker = list(color = '#decb90',
-                                       line = list(color = '#decb90',
-                                                   width = 1)))
-reportingStatusFig <- reportingStatusFig %>% add_trace(x = ~new.no, name = 'new',
-                         marker = list(color = '#7562b4',
-                                       line = list(color = '#7562b4',
-                                                   width = 1)))
-reportingStatusFig <- reportingStatusFig %>% layout(barmode = 'stack', autosize=T, height=140, showlegend=FALSE,
-                      xaxis = list(title = "Species Reporting Status"),
-                      yaxis = list(title = "Records")) %>% 
-  layout(meta = list(mx_widgetId = "reportingStatus")) %>%
-  layout(yaxis = list(showticklabels = FALSE)) %>%
-  layout(yaxis = list(title = "")) %>%
-  config(displayModeBar = FALSE, responsive = TRUE)
+# Aggregate data by family and status
+agg_data <- combined_data %>%
+  group_by(Family, Status) %>%
+  summarise(Count = n()) %>%
+  ungroup()
 
-reportingStatusFig
+# Generate the stacked bar plot
+stacked_bar_plot <- plot_ly(data = agg_data, x = ~Family, y = ~Count, color = ~Status, type = 'bar', 
+                            colors = c('confirmed' = '#5a96d2', 'historical' = '#decb90', 'new' = '#7562b4'),
+                            text = ~paste(Status, ": ", Count),
+                            hoverinfo = 'text') %>%
+  layout(barmode = 'stack', 
+         xaxis = list(title = 'Family', tickangle = 45),  # Family name on the x-axis
+         yaxis = list(title = 'Count'), 
+         title = 'Species Reporting Status by Family')  # Main title for the figure
 
-reportingPal <- list("confirmed" = "#5a96d2", "historic" = "#decb90", "new" = "#7562b4")
-
-# Convert taxa to named list so that JSON can recognise it
-#statusTaxa <- split(x = taxa.status$taxa, f=taxa.status$status)
-
-# Write summarised plants to JSON file for viz 
-# (selection states corresponding with bar plot selections: 'new', 'historic','confirmed')
-statusData <- structure(list(palette = reportingPal, mapTitle = "Map 3. Species Reporting Status"))
+# Show the figure
+stacked_bar_plot
