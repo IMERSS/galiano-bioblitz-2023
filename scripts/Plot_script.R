@@ -35,14 +35,18 @@ agg_data <- combined_data %>%
   summarise(Count = n()) %>%
   ungroup()
 
-# Generate the stacked bar plot
-stacked_bar_plot <- plot_ly(data = agg_data, x = ~Family, y = ~Count, color = ~Status, type = 'bar', 
+# Ensure Family is a factor ordered alphabetically (reversed order for plotting top-to-bottom)
+agg_data$Family <- factor(agg_data$Family, levels = rev(sort(unique(agg_data$Family))))
+
+# Generate the stacked bar plot with horizontal bars
+stacked_bar_plot <- plot_ly(data = agg_data, y = ~Family, x = ~Count, color = ~Status, type = 'bar', 
+                            orientation = 'h',  # Set orientation to 'h' for horizontal bars
                             colors = c('confirmed' = '#5a96d2', 'historical' = '#decb90', 'new' = '#7562b4'),
                             text = ~paste(Status, ": ", Count),
                             hoverinfo = 'text') %>%
   layout(barmode = 'stack', 
-         xaxis = list(title = 'Family', tickangle = 45),  # Family name on the x-axis
-         yaxis = list(title = 'Count'), 
+         xaxis = list(title = 'Count'),  # Count on the x-axis
+         yaxis = list(title = 'Family'),  # Family on the y-axis
          title = 'Species Reporting Status by Family')  # Main title for the figure
 
 # Show the figure
