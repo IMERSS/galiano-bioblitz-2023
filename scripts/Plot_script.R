@@ -4,7 +4,7 @@ library(plotly)
 # Load data
 source("scripts/loadData.R")
 
-# Vector of plant families
+# Vector of plant families (All families you want to include)
 plant_families <- c("Pinaceae", "Sapindaceae", "Berberidaceae", "Fabaceae", "Asteraceae", 
                     "Poaceae", "Lamiaceae", "Rosaceae", "Amaryllidaceae", "Betulaceae", 
                     "Apiaceae", "Orobanchaceae", "Ericaceae", "Aspleniaceae", "Athyriaceae", 
@@ -32,22 +32,36 @@ combined_data <- combined_data %>%
 # Aggregate data by family and status
 agg_data <- combined_data %>%
   group_by(Family, Status) %>%
-  summarise(Count = n()) %>%
+  summarise(Count = n(), .groups = 'drop') %>%
   ungroup()
 
-# Ensure Family is a factor ordered alphabetically (reversed order for plotting top-to-bottom)
-agg_data$Family <- factor(agg_data$Family, levels = rev(sort(unique(agg_data$Family))))
+# Clean and explicitly set the Family factor levels in alphabetical order
+agg_data$Family <- agg_data$Family %>%
+  trimws() %>%  # Remove any leading or trailing spaces
+  factor(levels = sort(unique(agg_data$Family)))  # Set levels alphabetically
 
 # Generate the stacked bar plot with horizontal bars
 stacked_bar_plot <- plot_ly(data = agg_data, y = ~Family, x = ~Count, color = ~Status, type = 'bar', 
                             orientation = 'h',  # Set orientation to 'h' for horizontal bars
                             colors = c('confirmed' = '#5a96d2', 'historical' = '#decb90', 'new' = '#7562b4'),
-                            text = ~paste(Status, ": ", Count),
-                            hoverinfo = 'text') %>%
+                            text = ~paste("Family: ", Family, "<br>Status: ", Status, "<br>Count: ", Count),
+                            hoverinfo = 'text', textposition = 'inside') %>%
   layout(barmode = 'stack', 
-         xaxis = list(title = 'Count'),  # Count on the x-axis
-         yaxis = list(title = 'Family'),  # Family on the y-axis
-         title = 'Species Reporting Status by Family')  # Main title for the figure
+         xaxis = list(title = 'Count', 
+                      titlefont = list(size = 18)),  # Increase x-axis label font size
+         yaxis = list(
+           title = 'Family', 
+           tickangle = 0, 
+           autorange = "reversed",  # Reverse the y-axis and show all labels
+           tickvals = agg_data$Family,  # Explicitly set the tick values
+           ticktext = agg_data$Family,  # Explicitly set the tick text for y-axis
+           showticklabels = TRUE,
+           tickfont = list(size = 10)  # Increase font size for y-axis tick labels
+         ),
+         title = 'Species Reporting Status by Family', 
+         font = list(size = 16),  # Increase font size for the title
+         margin = list(l = 180, t = 50, b = 100),  # Increase margins for better spacing
+         height = 1000)  # Increase the height of the plot
 
 # Show the figure
 stacked_bar_plot
