@@ -1,0 +1,25 @@
+.mxcw-content {
+    padding: 0 1rem 0 1rem;
+    overflow: auto;
+    height: 100%;
+}
+
+.imerss-blitz-widgets {
+    display: none;
+}
+
+.imerss-filter-panel {
+    height: auto;
+}
+
+.imerss-blitz-left {
+    width: 50%;
+}
+
+.imerss-blitz-right {
+    width: 50%;
+}
+
+#header {
+    display: none;
+}

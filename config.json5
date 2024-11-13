@@ -1,0 +1,115 @@
+{
+    reknitJobs: [{
+        infile: "%maxwell/docs/Galiano-BioBlitz-2023.html",
+        outfile: "%maxwell/docs/Galiano-BioBlitz-2023-Reknitted.html",
+        options: {
+            template: "%maxwell/src/html/template.html",
+            storyPageOptions: {
+                selectableRegions: [],
+            },
+            components: {
+                vizLoader: {
+                    type: "hortis.blitzVizLoader",
+                    container: ".imerss-container",
+                    obsFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv",
+                    taxaFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv"
+                },
+                map: {
+                    type: "fluid.emptySubcomponent"
+                }
+            },
+            paneHandlers: {
+                Community: {
+                    type: "maxwell.storyVizPane",
+                    markupTemplate: "html/imerss-viz-blank.html"
+                }
+            }
+        }
+    }],
+    transforms: [
+        //{
+        // We no longer rewrite taxon links back to the storymap site
+        // file: "%maxwell/src/js/reknit-xetthecum.js",
+        // func: "rewriteTaxonLinks"
+        //}
+    ],
+    copyJobs: [{ // TODO: Extend module-relative addressing to 3rd-party modules
+        source: "%maxwell/node_modules/@imerss/inat-components/dist/standalone.min.js",
+        target: "%maxwell/docs/js/inat-components-standalone.min.js"
+    }, {
+        source: "%maxwell/src/css/*.css",
+        target: "%maxwell/docs/css"
+    }, {
+        source: "%maxwell/src/js/client/*.js",
+        target: "%maxwell/docs/js"
+    }, {
+        source: "%infusion/src/lib/jquery/core/js/jquery.js",
+        target: "%maxwell/docs/js/jquery.js"
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz-lib.js",
+        target: "%maxwell/docs/js/imerss-viz-lib.js"
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz-lib.js.map",
+        target: "%maxwell/docs/js/imerss-viz-lib.js.map",
+        replaceSource: "\"sourceRoot\":\"../..\"",
+        replaceTarget: "\"sourceRoot\":\"../../../bagatelle/\""
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz-new-core.js",
+        target: "%maxwell/docs/js/imerss-viz-new-core.js"
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz-new-core.js.map",
+        target: "%maxwell/docs/js/imerss-viz-new-core.js.map",
+        replaceSource: "\"sourceRoot\":\"../..\"",
+        replaceTarget: "\"sourceRoot\":\"../../../bagatelle/\""
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz-new.js",
+        target: "%maxwell/docs/js/imerss-viz-new.js"
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz-new.js.map",
+        target: "%maxwell/docs/js/imerss-viz-new.js.map",
+        replaceSource: "\"sourceRoot\":\"../..\"",
+        replaceTarget: "\"sourceRoot\":\"../../../bagatelle/\""
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-viz.js",
+        target: "%maxwell/docs/js/imerss-viz.js"
+    }, {
+        source: "%imerss-bioinfo/docs/js/imerss-blitz.js",
+        target: "%maxwell/docs/js/imerss-blitz.js"
+    }, {
+        source: "%imerss-bioinfo/src/client/img/Arrow-down.svg",
+        target: "%maxwell/docs/img/Arrow-down.svg"
+    }, {
+        source: "%imerss-bioinfo/src/client/img/Arrow-up.svg",
+        target: "%maxwell/docs/img/Arrow-up.svg"
+    }, {
+        source: "%imerss-bioinfo/src/client/img/external-link.svg",
+        target: "%maxwell/docs/img/external-link.svg"
+    }, {
+        source: "%imerss-bioinfo/src/client/img/download.svg",
+        target: "%maxwell/docs/img/download.svg"
+    }, {
+        source: "%imerss-bioinfo/docs/css/imerss-viz-lib.css",
+        target: "%maxwell/docs/css/imerss-viz-lib.css"
+    }, {
+        source: "%imerss-bioinfo/docs/css/imerss-viz-new-core.css",
+        target: "%maxwell/docs/css/imerss-viz-new-core.css"
+    }, {
+        source: "%imerss-bioinfo/docs/css/imerss-viz-new.css",
+        target: "%maxwell/docs/css/imerss-viz-new.css"
+    }, {
+        source: "%imerss-bioinfo/docs/css/imerss-blitz.css",
+        target: "%maxwell/docs/css/imerss-blitz.css"
+    }, {
+        source: "%maxwell/src/html/*.html",
+        target: "%maxwell/docs/html"
+    }, {
+        source: "%maxwell/tabular_data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv",
+        target: "%maxwell/docs/data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv"
+    }, {
+        source: "%maxwell/tabular_data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv",
+        target: "%maxwell/docs/data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv"
+    }
+    ]
+}
+
+

@@ -10,6 +10,8 @@ const fs = require("fs-extra"),
 
 const maxwell = fluid.registerNamespace("maxwell");
 
+fluid.setLogging(true);
+
 require("./utils.js");
 
 /** Parse an HTML document supplied as a symbolic reference into a linkedom DOM document
@@ -18,25 +20,19 @@ require("./utils.js");
  */
 maxwell.parseDocument = function (path) {
     const resolved = fluid.module.resolvePath(path);
+    const stats = fs.statSync(resolved);
+    fluid.log("Read " + stats.size + " bytes from " + resolved);
     const text = fs.readFileSync(resolved, "utf8");
-    return linkedom.parseHTML(text).document;
+    const now = Date.now();
+    const togo = linkedom.parseHTML(text).document;
+    fluid.log("Parsed in " + (Date.now() - now) + " ms");
+    return togo;
 };
 
 maxwell.writeFile = function (filename, data) {
     fs.writeFileSync(filename, data, "utf8");
     const stats = fs.statSync(filename);
-    console.log("Written " + stats.size + " bytes to " + filename);
-};
-
-// Hide the divs which host the original leaflet maps and return their respective section headers
-maxwell.hideLeafletWidgets = function (container) {
-    const widgets = [...container.querySelectorAll(".html-widget.leaflet")];
-    widgets.forEach(function (widget) {
-        widget.removeAttribute("style");
-    });
-    const sections = widgets.map(widget => widget.closest(".section.level2"));
-    console.log("Found " + sections.length + " sections holding Leaflet widgets");
-    return sections;
+    fluid.log("Written " + stats.size + " bytes to " + filename);
 };
 
 /** Compute figures to move to data pane, by searching for selector `.data-pane`, and if any parent is found
@@ -53,6 +49,7 @@ maxwell.figuresToMove = function (container) {
     return widened;
 };
 
+// No longer done after abolition of scrollytelling - data pane no longer exists
 /** Move plotly widgets which have siblings which are maps into children of the .mxcw-data pane
  * @param {Document} template - The document for the template structure into which markup is being integrated
  * @param {Element[]} sections - The array of section elements found holding leaflet maps
@@ -84,19 +81,124 @@ maxwell.movePlotlyWidgets = function (template, sections, container) {
             toMove.setAttribute("data-section-index", "" + index);
             dataDivs[index].prepend(toMove);
         } else {
-            console.log("Ignoring widget at index " + i + " since it has no sibling map");
+            fluid.log("Ignoring widget at index " + i + " since it has no sibling map");
         }
     });
     return dataDivs;
 };
 
+fluid.delete = function (root, path) {
+    const segs = fluid.model.pathToSegments(path);
+    // TODO: Refactor away this silly interface too
+    const pen = fluid.model.traverseSimple(root, segs, 0, null, 1);
+    delete pen[fluid.peek(segs)];
+};
+
+maxwell.censorMapbox = function (data) {
+    // TODO: Implement immutable applier
+    const copy = fluid.copy(data);
+    fluid.delete(copy, "x.layout.mapbox.style.sources");
+    fluid.delete(copy, "x.layout.mapbox.style.layers");
+    return copy;
+};
+
+maxwell.sortLayers = function (layers) {
+    layers.sort((a, b) =>
+        (+a.id.endsWith("-highlight") - (+b.id.endsWith("-highlight")))
+    );
+};
+
+maxwell.parseMapboxWidgets = function (container) {
+    const widgets = [...container.querySelectorAll(".html-widget.plotly")];
+    let rootMap;
+    const mapWidgets = {};
+    const sources = {};
+    const layerHash = {};
+    const layersByPaneId = {};
+    const fillPatterns = {};
+    widgets.forEach(widget => {
+        const widgetId = widget.id;
+        const dataNode = widgetId ? container.querySelector("[data-for=\"" + widgetId + "\"]") : null;
+        //        console.log("Got data node ", dataNode);
+        const data = dataNode ? JSON.parse(dataNode.innerHTML) : null;
+        //        console.log("Got data ", data);
+        const mapbox = fluid.get(data, "x.layout.mapbox");
+        if (mapbox) {
+            const paneId = mapbox.style.id;
+
+            // Deduplicate all sources
+            Object.entries(mapbox.style.sources).forEach(([key, value]) => {
+                sources[key] = value;
+            });
+            mapbox.style.layers.forEach((layer) => {
+                const key = layer.id;
+                layerHash[key] = layer;
+                fluid.set(layersByPaneId, [paneId, key], 1);
+                const fillPattern = layer["mx-fill-pattern"];
+                if (fillPattern) {
+                    fillPatterns[fillPattern] = 1;
+                    layer.paint["fill-pattern"] = fillPattern;
+                }
+            });
+            if (!rootMap) {
+                rootMap = data;
+            }
+            mapWidgets[paneId] = maxwell.censorMapbox(data);
+
+            const parent = widget.parentNode;
+            // Remove original widget and data nodes from document and replace by marker span connecting DOM node to pane name
+            widget.remove();
+            dataNode.remove();
+            const span = parent.ownerDocument.createElement("span");
+            span.setAttribute("class", `mxcw-mapPane mxcw-paneName-${paneId}`);
+            parent.appendChild(span);
+        }
+    });
+    rootMap = rootMap || {};
+    const layers = Object.values(layerHash);
+    maxwell.sortLayers(layers);
+    fluid.set(rootMap, "x.layout.mapbox.style.sources", sources);
+    fluid.set(rootMap, "x.layout.mapbox.style.layers", layers);
+    fluid.log("Parsed " + Object.keys(mapWidgets).length + " mapbox widgets from " + widgets.length + " plotly widgets");
+    return {rootMap, layersByPaneId, mapWidgets, fillPatterns};
+};
+
+maxwell.makeCreateElement = function (dokkument) {
+    return (tagName, props) => {
+        const element = dokkument.createElement(tagName);
+        Object.entries(props).forEach(([key, value]) => element.setAttribute(key, value));
+        return element;
+    };
+};
+
+// Move all children other than the heading itself into nested "sectionInner" node to enable 2-column layout
+maxwell.encloseSections = function (container) {
+    const h = maxwell.makeCreateElement(container.ownerDocument);
+    const sections = [...container.querySelectorAll(".section.level2")];
+    sections.forEach(function (section) {
+        const children = [...section.childNodes].filter(node => node.tagName !== "H2");
+        const inner = h("div", {"class": "mxcw-sectionInner"});
+        section.appendChild(inner);
+        // Move to inner column - perhaps optional behaviour
+        const innerColumn = h("div", {"class": "mxcw-sectionColumn"});
+        inner.appendChild(innerColumn);
+        children.forEach(child => innerColumn.appendChild(child));
+        const vizColumn = h("div", {"class": "mxcw-sectionColumn mxcw-vizColumn"});
+        inner.appendChild(vizColumn);
+    });
+};
+
+// Transfer the content referenced by the supplied selector from container into template, removing it from container
 maxwell.transferNodeContent = function (container, template, selector) {
     const containerNode = container.querySelector(selector);
     const templateNode = template.querySelector(selector);
-    templateNode.innerHTML = containerNode.innerHTML;
-    containerNode.remove();
+    if (templateNode) {
+        templateNode.innerHTML = containerNode.innerHTML;
+        containerNode.remove();
+    }
 };
 
+// Read any plotData file and merge information in it into the grade information for the associated paneHandler
 maxwell.integratePaneHandler = function (paneHandler, key) {
     const plotDataFile = "%maxwell/viz_data/" + key + "-plotData.json";
     let plotData;
@@ -104,18 +206,38 @@ maxwell.integratePaneHandler = function (paneHandler, key) {
     if (fs.existsSync(resolved)) {
         plotData = maxwell.loadJSON5File(resolved);
     } else {
-        console.log("plotData file for pane " + key + " not found");
+        fluid.log("plotData file for pane " + key + " not found");
     }
     const toMerge = fluid.censorKeys(plotData, ["palette", "taxa"]);
     return {...paneHandler, ...toMerge};
 };
 
+maxwell.makeRootLinkage = function (targetGrade, options) {
+    // cf. fluid.makeGradeLinkage
+    const linkageName = targetGrade + "-maxwellRoot";
+    const optionsText = JSON.stringify(options);
+    return `
+    fluid.defaults("${linkageName}", {
+        gradeNames: "fluid.component",
+        distributeOptions: {
+            record: ${optionsText},
+            target: "{/ ${targetGrade}}.options"
+        }
+    });
+    fluid.constructSingle([], "${linkageName}");
+    `;
+};
+
 maxwell.reknitFile = async function (infile, outfile, options, config) {
     const document = maxwell.parseDocument(fluid.module.resolvePath(infile));
     const container = document.querySelector(".main-container");
-    const sections = maxwell.hideLeafletWidgets(container);
+    const mapboxData = maxwell.parseMapboxWidgets(container);
+    maxwell.encloseSections(container);
+    maxwell.writeJSONSync("mapboxData.json", mapboxData);
+    const mapboxDataVar = "maxwell.mapboxData = " + JSON.stringify(mapboxData) + ";\n";
+
     const template = maxwell.parseDocument(fluid.module.resolvePath(options.template));
-    maxwell.movePlotlyWidgets(template, sections, container);
+    // maxwell.movePlotlyWidgets(template, sections, container);
 
     maxwell.transferNodeContent(document, template, "h1");
     maxwell.transferNodeContent(document, template, "title");
@@ -125,7 +247,9 @@ maxwell.reknitFile = async function (infile, outfile, options, config) {
     await maxwell.asyncForEach(transforms || [], async (rec) => {
         const file = require(fluid.module.resolvePath(rec.file));
         const transform = file[rec.func];
+        fluid.log("Applying transform ", rec.func, " from file ", rec.file);
         await transform(document, container, template, {infile, outfile, options}, config);
+        fluid.log("Transform applied");
     });
     const target = template.querySelector(".mxcw-content");
     target.appendChild(container);
@@ -135,9 +259,15 @@ maxwell.reknitFile = async function (infile, outfile, options, config) {
             // TODO: Allow prefix to be contributed representing entire page, e.g. "Mollusca-"
             return maxwell.integratePaneHandler(paneHandler, key);
         });
-        const paneMapText = "maxwell.scrollyPaneHandlers = " + JSON.stringify(integratedHandlers) + ";\n";
+        const rawPaneHandlers = "maxwell.rawPaneHandlers = " + JSON.stringify(integratedHandlers) + ";\n";
+        const storyPageOptions = options.storyPageOptions || {};
+        if (options.components) {
+            const unflattened = maxwell.unflattenOptions(options.components);
+            storyPageOptions.components = unflattened;
+        }
+        const storyPageLinkage = maxwell.makeRootLinkage("maxwell.storyPage", storyPageOptions);
         const scriptNode = template.createElement("script");
-        scriptNode.innerHTML = paneMapText;
+        scriptNode.innerHTML = mapboxDataVar + rawPaneHandlers + storyPageLinkage;
         const head = template.querySelector("head");
         head.appendChild(scriptNode);
     }
@@ -145,18 +275,15 @@ maxwell.reknitFile = async function (infile, outfile, options, config) {
     maxwell.writeFile(fluid.module.resolvePath(outfile), outMarkup);
 };
 
-// TODO: copy up synchronous copyGlob
 const copyGlob = function (sourcePattern, targetDir) {
-    console.log("copyGlob ", sourcePattern);
     const fileNames = glob.sync(sourcePattern);
-    console.log("Got files ", fileNames);
     fileNames.forEach(filePath => {
         const fileName = path.basename(filePath);
         const destinationPath = path.join(targetDir, fileName);
 
         fs.ensureDirSync(path.dirname(destinationPath));
         fs.copyFileSync(filePath, destinationPath);
-        console.log(`Copied file: ${fileName}`);
+        fluid.log(`Copied file: ${destinationPath}`);
     });
 };
 
@@ -173,13 +300,13 @@ const copyDep = function (source, target, replaceSource, replaceTarget) {
         const text = fs.readFileSync(sourcePath, "utf8");
         const replaced = text.replace(replaceSource, replaceTarget);
         fs.writeFileSync(targetPath, replaced, "utf8");
-        console.log(`Copied file: ${targetPath}`);
+        fluid.log(`Copied file: ${targetPath}`);
     } else if (sourcePath.includes("*")) {
         copyGlob(sourcePath, targetPath);
     } else {
         fs.ensureDirSync(path.dirname(targetPath));
         fs.copySync(sourcePath, targetPath);
-        console.log(`Copied file: ${targetPath}`);
+        fluid.log(`Copied file: ${targetPath}`);
     }
 };
 
@@ -211,5 +338,3 @@ const reknit = async function () {
 };
 
 reknit().then();
-
-

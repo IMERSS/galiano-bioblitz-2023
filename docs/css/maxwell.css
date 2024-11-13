@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    margin-block-start: 0px;
+}
+
+.main-container {
+    padding-bottom: 80vh;
+}
+
+.mxcw-banner {
+    font-size: 36px;
+}
+
+.mxcw-container {
+    display: flex;
+}
+
+.mxcw-leftPane {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    /* For God's sake I really mean it! */
+    min-width: 65%;
+}
+
+.mxcw-map {
+    height: 65%;
+}
+
+.mxcw-data {
+    height: 35%
+
+}
+
+.mxcw-content {
+    width: 35%;
+    font-size: 18px;
+    padding: 0 1rem 0 1rem;
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+}
+
+.mxcw-content h2:hover {
+    outline: 1px solid grey;
+    cursor: pointer;
+}
+
+.mxcw-mapPane {
+    opacity: 0;
+    /* TODO: move over to "visibility" */
+    transition-property: opacity;
+    transition-duration: 400ms;
+}
+
+.mxcw-mapPane.mxcw-activeMapPane {
+    opacity: 1;
+}
+
+.mxcw-mapSubPane.mxcw-mapPane {
+    transition-duration: 0ms;
+}
+
+.mxcw-widgetPane {
+    display: none;
+    padding: 2em;
+}
+
+.mxcw-widgetPane.mxcw-activeWidgetPane {
+    display: block;
+}
+
+.mxcw-content .section {
+    padding: 4px;
+}
+
+.mxcw-activeSection {
+    background-color: #eee;
+    outline: 1px solid black;
+    transition-property: background-color, outline;
+    transition-duration: 400ms;
+}
+
+.mxcw-mapLabel {
+    z-index: 999 !important;
+}
+
+.mxcw-fireLabel {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.mxcw-siteLabel {
+    font-size: 10px;
+    top: -19px;
+    color: white;
+}
+
+.mxcw-mapLabel > div {
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Styling for native legends */
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+    opacity: 0.7;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+    border-radius: 5px;
+}
+
+.mxcw-hidden.legend {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}

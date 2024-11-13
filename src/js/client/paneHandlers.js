@@ -6,7 +6,7 @@
 var maxwell = fluid.registerNamespace("maxwell");
 
 fluid.defaults("maxwell.iNatComponentsPaneHandler", {
-    gradeNames: ["maxwell.scrollyPaneHandler", "maxwell.templateScrollyPaneHandler"],
+    gradeNames: ["maxwell.paneHandler", "maxwell.templatePaneHandler", "maxwell.mapHidingPaneHandler"],
     taxonId: null,
     taxonName: null,
     containerId: "inat-components",
@@ -58,19 +58,8 @@ fluid.defaults("maxwell.iNatComponentsPaneHandler", {
             tabDesc: "inat-tab-desc"
         }
     },
-    // scriptLocation: "js/inat-components-build-Molluscs.js",
-    events: { // TODO: Better as a resource
-        scriptLoaded: null
-    },
     listeners: {
         "onCreate.instantiate" : "maxwell.instantiateINat({that}.options.containerId, {that}.options.iNatOptions, {that}.options.taxonName)"
-    },
-    modelListeners: {
-        paneVisible: {
-            path: "{paneHandler}.model.isVisible",
-            func: "maxwell.toggleClass",
-            args: ["{scrollyLeafletMap}.container.0", "{change}.value", "mxcw-hideMap", true]
-        }
     }
 });
 
@@ -102,19 +91,3 @@ containers and the model is not done yet for some reason - why is it done usuall
 against it?
 
  */
-
-
-// Fix the display size of a plotly widget, e.g. in the status pane
-
-fluid.defaults("maxwell.statusPaneBinder", {
-    listeners: {
-        "onCreate.fixLayout": "maxwell.statusPaneBinder.fixLayout"
-    }
-});
-
-maxwell.statusPaneBinder.fixLayout = function (that) {
-    const widgetPane = that.options.parentContainer[0].querySelector(".plotly.html-widget");
-    widgetPane.setAttribute("style", "width: 100%");
-    // Tell plotly to resize the widgets inside
-    window.dispatchEvent(new Event("resize"));
-};

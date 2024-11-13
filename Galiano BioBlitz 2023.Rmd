@@ -18,7 +18,9 @@ source("scripts/Plot_script.R")
 stacked_bar_plot
 ```
 
-## Authors
+<span class="mxcw-mapPane mxcw-paneName-Community"></span>
+
+### Authors
 
 Antranig Basman, Andrew Simon
 
