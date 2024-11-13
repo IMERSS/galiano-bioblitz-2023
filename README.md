@@ -6,6 +6,7 @@ interface for the Galiano 2023 Bioblitz.
 You can browse the published output of this project in these documents:
 
 * [Galiano Bioblitz - Raw Storymapping Output](https://imerss.github.io/galiano-bioblitz-2023/Galiano-BioBlitz-2023.html)
+* [Storymapping Reknitted into Panel-based Interface](https://imerss.github.io/galiano-bioblitz-2023/Galiano-BioBlitz-2023-Reknitted.html)
 
 This was built using R and R Markdown, using free tools such as git, R and R studio, and publish and host it for free using
 [GitHub Pages](https://pages.github.com/).
