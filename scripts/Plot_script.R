@@ -45,7 +45,7 @@ stacked_bar_plot <- plot_ly(data = agg_data, y = ~Family, x = ~Count, color = ~S
                             orientation = 'h',  # Set orientation to 'h' for horizontal bars
                             colors = c('confirmed' = '#5a96d2', 'historical' = '#decb90', 'new' = '#7562b4'),
                             text = ~paste("Family: ", Family, "<br>Status: ", Status, "<br>Count: ", Count),
-                            hoverinfo = 'text', textposition = 'inside', width = 670, height = 1000) %>%
+                            hoverinfo = 'text', textposition = 'inside', width = 550, height = 1000) %>%
   layout(barmode = 'stack', 
          xaxis = list(title = 'Count', 
                       titlefont = list(size = 18)),  # Increase x-axis label font size
@@ -58,10 +58,12 @@ stacked_bar_plot <- plot_ly(data = agg_data, y = ~Family, x = ~Count, color = ~S
            showticklabels = TRUE,
            tickfont = list(size = 10)  # Increase font size for y-axis tick labels
          ),
+         legend = list(x = 0.8, y = 1),
          title = 'Species Reporting Status by Family', 
          font = list(size = 16),  # Increase font size for the title
-         margin = list(l = 0, r = 0, t = 50, b = 100)  # Increase margins for better spacing
-         )
+         margin = list(l = 0, r = 0, t = 50, b = 50)
+         ) %>%
+  config(displayModeBar = FALSE, responsive = TRUE)
 
 # Show the figure
 stacked_bar_plot

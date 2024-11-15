@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Galiano BioBlitz 2023 Outcomes: vascular plants</title>
+	<title>Galiano BioBlitz 2023 Outcomes: Vascular plants</title>
 
 	<!-- Looks like this comes from here - use CDN since it refers to relative fonts
     https://github.com/Templarian/MaterialDesign-Webfont/releases/tag/v2.0.46 -->
@@ -15,8 +15,10 @@
 	<link rel="stylesheet" type="text/css" href="css/imerss-viz-lib.css"/>
 	<link rel="stylesheet" type="text/css" href="css/imerss-viz-new-core.css"/>
 	<link rel="stylesheet" type="text/css" href="css/imerss-viz-new.css"/>
-	<link rel="stylesheet" type="text/css" href="css/imerss-blitz.css"/>
 
+	<link rel="stylesheet" type="text/css" href="css/imerss-story.css"/>
+	<link rel="stylesheet" type="text/css" href="css/imerss-viz-story.css"/>
+	<link rel="stylesheet" type="text/css" href="css/imerss-blitz.css"/>
 	<link rel="stylesheet" type="text/css" href="css/bioblitz.css"/>
 
 	<script src="js/plotly-2.1.1.js"></script>
@@ -46,6 +48,18 @@
 			<symbol id="copy-check" viewBox="0 0 32 32">
 				<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
 			</symbol>
+
+			<symbol id="section-left" viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="24.6702" cy="24.2849" r="21.9431" stroke-width="var(--section-circle-stroke-width)"/>
+				<path d="M27.4512 14.332L17.4984 24.2848" stroke-width="4" stroke-linecap="round"/>
+				<path d="M27.3828 34.2383L17.43 24.2855" stroke-width="4" stroke-linecap="round"/>
+			</symbol>
+
+			<symbol id="section-right" viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="24.4177" cy="24.4358" r="21.9431" stroke-width="var(--section-circle-stroke-width)"/>
+				<path d="M21.6367 34.3887L31.5895 24.4359" stroke-width="4" stroke-linecap="round"/>
+				<path d="M21.7051 14.4824L31.6579 24.4352" stroke-width="4" stroke-linecap="round"/>
+			</symbol>
 		</defs>
 	</svg>
 </head>
@@ -53,7 +67,7 @@
 <body>
 <div class="imerss-container">
 	<div class="imerss-blitz-left">
-		<h2>Galiano BioBlitz 2023 Outcomes: vascular plants</h2>
+		<h2>Galiano BioBlitz 2023 Outcomes: Vascular plants</h2>
 		<div class="imerss-main-tabs imerss-tabs ui-tabs ui-widget ui-widget-content">
 			<ul class="ui-tabs-nav" role="tablist">
 				<li class="ui-tabs-tab ui-tab ui-state-default ui-tabs-active">
@@ -108,8 +122,29 @@
 			<div class="imerss-record-reporter">
 			</div>
 		</div>
-		<div class="mxcw-content">
-
+		<div class="mxcw-content-holder">
+			<div class="mxcw-section-nav">
+				<div class="section-left section-button disabled">
+					<svg width="49" height="49">
+						<use href="#section-left" />
+					</svg>
+					<div class="section-left-desc section-button-desc">
+						Back: <span class="section-left-text">Land Acknowledgement</span>
+					</div>
+				</div>
+				<div class="section-nav-spacer"></div>
+				<div class="section-right section-button disabled">
+					<svg width="49" height="49">
+						<use href="#section-right" />
+					</svg>
+					<div class="section-right-desc section-button-desc">
+						Next: <span class="section-right-text">Cultural Values – Marine</span>
+					</div>
+				</div>
+			</div>
+			<div class="mxcw-content">
+				<!-- main-container gets reknitted into here -->
+			</div>
 		</div>
 		<div class="imerss-blitz-widgets">
 			<div class="imerss-taxonDisplay">

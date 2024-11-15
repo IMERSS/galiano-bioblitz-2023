@@ -23,3 +23,18 @@
 #header {
     display: none;
 }
+
+.mxcw-sectionColumn {
+    width: 100%;
+}
+
+.mxcw-content-holder {
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+}
+
+.main-container h2 {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}

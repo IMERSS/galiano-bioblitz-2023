@@ -4,18 +4,15 @@
         outfile: "%maxwell/docs/Galiano-BioBlitz-2023-Reknitted.html",
         options: {
             template: "%maxwell/src/html/template.html",
+            vizColumn: null,
             storyPageOptions: {
+                gradeNames: "maxwell.storyPage.withVizLoader",
                 selectableRegions: [],
             },
             components: {
                 vizLoader: {
-                    type: "hortis.blitzVizLoader",
-                    container: ".imerss-container",
                     obsFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv",
                     taxaFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv"
-                },
-                map: {
-                    type: "fluid.emptySubcomponent"
                 }
             },
             paneHandlers: {
@@ -27,11 +24,6 @@
         }
     }],
     transforms: [
-        //{
-        // We no longer rewrite taxon links back to the storymap site
-        // file: "%maxwell/src/js/reknit-xetthecum.js",
-        // func: "rewriteTaxonLinks"
-        //}
     ],
     copyJobs: [{ // TODO: Extend module-relative addressing to 3rd-party modules
         source: "%maxwell/node_modules/@imerss/inat-components/dist/standalone.min.js",
