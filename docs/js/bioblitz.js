@@ -5,6 +5,8 @@ var maxwell = fluid.registerNamespace("maxwell");
 // noinspection ES6ConvertVarToLetConst // otherwise this is a duplicate on minifying
 var hortis = fluid.registerNamespace("hortis");
 
+// TODO: Currently disused, left over from old-style bioblitz and so far has no modern equivalent, re selectable regions etc.
+
 fluid.defaults("maxwell.bioblitzDiversityPane", {
     gradeNames: ["maxwell.scrollyPaneHandler", "maxwell.scrollyVizBinder", "maxwell.withNativeLegend"],
     regionStyles: {
