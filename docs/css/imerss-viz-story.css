@@ -112,6 +112,7 @@
 
 .imerss-checklist-holder {
     background: var(--imerss-eco-colour);
+    width: auto;
 }
 
 .imerss-map-and-taxa {

@@ -12,7 +12,8 @@
             components: {
                 vizLoader: {
                     obsFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared.csv",
-                    taxaFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv"
+                    taxaFile: "data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv",
+                    regionIndirectionFile: "data/regionIndirection.csv"
                 }
             },
             paneHandlers: {
@@ -100,8 +101,9 @@
     }, {
         source: "%maxwell/tabular_data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv",
         target: "%maxwell/docs/data/Galiano_Island_vascular_plant_records_consolidated-prepared-taxa.csv"
+    }, {
+        source: "%maxwell/tabular_data/regionIndirection.csv",
+        target: "%maxwell/docs/data/regionIndirection.csv"
     }
     ]
 }
-
-

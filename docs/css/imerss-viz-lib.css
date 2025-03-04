@@ -698,6 +698,23 @@ a.ui-button:active,
     --imerss-scrollbar-width: 12px;
 }
 
+
+/** This block refers to standalone viz rather than story
+ */
+
+.imerss-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0; /* Essential otherwise it overflows */
+    contain: paint; /* Makes sure loading indicator is clipped */
+}
+
+/** To prevent black content in fullscreen mode - https://stackoverflow.com/questions/16163089/background-element-goes-black-when-entering-fullscreen-with-html5 **/
+.imerss-container::backdrop {
+    background-color: rgba(255,255,255,0);
+}
+
 .imerss-container *,
 .imerss-container *:before,
 .imerss-container *:after {
@@ -725,6 +742,12 @@ a.ui-button:active,
     position: absolute;
 }
 
+.imerss-info-panel {
+    display: flex;
+    width: 15%;
+    padding-right: 8px;
+}
+
 .imerss-legend-preview {
     width: 18px;
     height: 18px;
@@ -734,7 +757,7 @@ a.ui-button:active,
 
 .imerss-legend-label {
     display: inline-block;
-    width: 8rem;
+    width: 8em;
     margin-left: 6px;
     position: relative;
     top: 1px;
@@ -747,7 +770,7 @@ a.ui-button:active,
 }
 
 .imerss-legend {
-    width: 10rem;
+    width: 10em;
     margin-left: auto;
     margin-right: 10px;
     background: #555e;
@@ -822,16 +845,6 @@ a.ui-button:active,
 }
 
 
-/** This block refers to standalone viz rather than story
- */
-
-.imerss-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 0; /* Essential otherwise it overflows */
-}
-
 .imerss-map-and-taxa {
     display: flex;
     /** Old viz do this in a column */
@@ -865,13 +878,14 @@ a.ui-button:active,
 /** Inside, e.g. taxonDisplay-iNat-extern */
 
 .external-link {
-    width: 1rem;
-    height: 0.9rem;
+    width: 1em;
+    height: 0.9em;
     display: inline-block;
     background-image: url("../img/external-link.svg");
     background-repeat: no-repeat;
-    background-size: 0.9rem;
-    margin-left: 8px;
+    background-size: 0.9em;
+    margin-left: 6px;
+    vertical-align: -1px;
 }
 
 .imerss-taxonDisplay {
@@ -1055,7 +1069,7 @@ a.ui-button:active,
 }
 
 .imerss-autocomplete-row label {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
@@ -1063,11 +1077,42 @@ a.ui-button:active,
     max-height: 600px;
 }
 
+.imerss-controls {
+    margin-top: 6px;
+}
+
+.imerss-fullscreen-control:hover {
+    background: #d0d7de33;
+}
+
+.imerss-fullscreen-exit-control {
+    display: none;
+}
+
+.imerss-fullscreen-mode .imerss-fullscreen-control {
+    display: none;
+}
+
+.imerss-fullscreen-mode .imerss-fullscreen-exit-control {
+    display: block;
+}
+
+.imerss-container .autocomplete__hint, .imerss-filters .autocomplete__input, .imerss-filters .autocomplete__option {
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.imerss-container .autocomplete__input--default {
+    padding: 2px 4px 2px 4px;
+    border-width: 1px;
+    width: 15em;
+}
 
 .imerss-filter-panel {
     padding: 2px 1rem 2px 1rem;
     display: flex;
     flex-direction: column;
+    width: 35%;
 }
 
 .imerss-filter {
@@ -1077,7 +1122,7 @@ a.ui-button:active,
 
 .imerss-filters {
     height: 100%;
-    width: 20rem;
+    width: 100%;
     overflow-y: auto;
     padding-right: 0.5em;
 }
@@ -1109,21 +1154,24 @@ a.ui-button:active,
 }
 
 .imerss-filter-body {
-    padding-left: 1rem;
+    padding-left: 16px;
     position: relative;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    font-size: smaller;
 }
 
 .imerss-filter-clear {
-    background-image: url(../img/x-circle-close.svg);
-    background-size: 20px;
     position: absolute;
     right: 5px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imerss-filter-clear:hover {
@@ -1135,15 +1183,43 @@ a.ui-button:active,
     display: none;
 }
 
-.imerss-filters .autocomplete__hint, .imerss-filters .autocomplete__input, .imerss-filters .autocomplete__option {
-    font-size: 16px;
-    line-height: 1.25;
+.imerss-free-region-filter {
+    display: flex;
+    flex-direction: column;
 }
 
-.imerss-filters .autocomplete__input--default {
-    padding: 2px 4px 2px 4px;
-    border-width: 1px;
-    width: 15rem;
+.imerss-free-region-filter-holder {
+    position: relative;
+}
+
+.imerss-free-region-filter .imerss-filter-clear {
+    top: -1px;
+}
+
+.imerss-free-region-control {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.imerss-free-region-control .imerss-filter-body {
+    overflow-y: scroll;
+    height: 6.5em;
+}
+
+.imerss-free-region-control .imerss-filter-title {
+    display: none;
+}
+
+.imerss-region-field {
+    font-size: 9px;
+    margin-bottom: 2px;
+}
+
+/** Reestablish .imerss-filter-body by reoverriding .imerss-container .autocomplete__input--default def **/
+.imerss-container .imerss-free-region-filter .autocomplete__input--default {
+    margin-left: 16px;
+    margin-bottom: 2px;
 }
 
 .imerss-region-filter-rows {
@@ -1161,11 +1237,21 @@ a.ui-button:active,
     width: 100%;
 }
 
+/* Taken from muffinman article demo at https://muffinman.io/blog/native-dual-range-input/ */
+.dual-range-values {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
 /** Override core definition in tabs.css to stop tab content overflowing
  * TODO: Check that Xetthecum Phase III is still all right etc.
  */
 .ui-tabs .ui-tabs-panel {
     display: flex;
+    padding: 10px;
 }
 
 #fli-tab-checklist.ui-tabs-panel, #fli-tab-simple-checklist.ui-tabs-panel {
@@ -1183,6 +1269,8 @@ a.ui-button:active,
 
 .imerss-checklist-holder {
     height: 100%;
+    /** Xetthecum III overrides this to "auto" to remove horizontal scrollbar, but without it, all other environments
+     * have gap to the right of vertical scrollbar */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1237,6 +1325,7 @@ a.ui-button:active,
     overflow-y: auto;
     /** Otherwise top checkbox gets clipped */
     padding-top: 2px;
+    padding-right: 4px;
 }
 
 .imerss-checklist p {
@@ -1266,12 +1355,22 @@ a.ui-button:active,
 }
 
 .pretty.checklist-fold-control {
-    margin-right: -0.3em;
-    color: #555;
+    margin-right: -1em;
+}
+
+/** Prevent this receiving mouseover so decoration can get tooltips */
+.pretty.checklist-fold-control:not(.active) {
+    pointer-events: none;
 }
 
 .pretty.checklist-fold-control.active {
     cursor: pointer;
+    margin-right: -0.1em;
+    color: #555;
+}
+
+.imerss-checklist-decoration {
+    margin: -2px -0.3em -2px -0.8em;
 }
 
 .imerss-checklist ul {
