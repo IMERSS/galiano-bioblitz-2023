@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Koeleria_GPS_track_cleaned_points_AS" id="Koeleria_GPS_track_cleaned_points_AS">
+	<SimpleField name="timestamp" type="string"></SimpleField>
+	<SimpleField name="begin" type="string"></SimpleField>
+	<SimpleField name="end" type="string"></SimpleField>
+	<SimpleField name="altitudeMode" type="string"></SimpleField>
+	<SimpleField name="tessellate" type="int"></SimpleField>
+	<SimpleField name="extrude" type="int"></SimpleField>
+	<SimpleField name="visibility" type="int"></SimpleField>
+	<SimpleField name="drawOrder" type="int"></SimpleField>
+	<SimpleField name="icon" type="string"></SimpleField>
+	<SimpleField name="snippet" type="string"></SimpleField>
+</Schema>
+<Folder><name>Koeleria_GPS_track_cleaned_points_AS</name>
+  <Placemark>
+	<name>Koeleria-0</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.517171 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944397 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 20.325 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 324.0 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.517171,48.944397,20.32</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-1</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.517163 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944435 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 20.325 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 8.3 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.517163,48.944435,20.32</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-2</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.517184 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944437 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 21.286 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 275.0 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.517184,48.944437,21.29</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-3</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.517179 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944424 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 22.248 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 165.6 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.517179,48.944424,22.25</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-4</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.517139 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944417 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 22.248 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 104.7 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.517139,48.944417,22.25</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-5</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516941 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944291 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 22.728 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 134.2 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516941,48.944291,22.73</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-6</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516860 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944292 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 23.209 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 88.9 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.51686,48.944292,23.21</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-7</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516904 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944220 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 20.325 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 202.0 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516904,48.94422,20.32</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-8</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516949 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944216 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 17.922 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 263.0 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516949,48.944216,17.92</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-9</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516994 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944264 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 18.883 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 328.6 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516994,48.944264,18.88</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-10</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516937 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944269 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 22.248 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 83.3 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516937,48.944269,22.25</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-11</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516938 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944231 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 21.286 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 181.3 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516938,48.944231,21.29</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-12</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516907 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944195 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 18.883 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 150.4 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516907,48.944195,18.88</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-13</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516840 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944186 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 16.480 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 101.2 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.51684,48.944186,16.48</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-14</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516907 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944191 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 16.960 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 277.0 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516907,48.944191,16.96</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-15</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516849 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944212 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 15.518 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 61.1 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516849,48.944212,15.52</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-16</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516774 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944181 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 16.480 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 122.2 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516774,48.944181,16.48</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-17</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516740 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944131 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 17.922 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 155.5 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.51674,48.944131,17.92</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-18</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516678 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944119 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 18.883 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 106.8 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516678,48.944119,18.88</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-19</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516585 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944053 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 21.286 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 137.1 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516585,48.944053,21.29</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-20</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516557 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944070 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 24.170 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 47.5 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516557,48.94407,24.17</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-21</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516569 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944084 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 25.132 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 329.4 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516569,48.944084,25.13</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-22</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516586 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944074 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 26.574 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 228.5 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516586,48.944074,26.57</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-23</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516562 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944050 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 27.535 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 145.6 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516562,48.94405,27.53</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-24</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516573 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944033 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 27.535 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 203.5 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516573,48.944033,27.53</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Koeleria-25</name>
+	<description>&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Longitude: -123.516546 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latitude: 48.944037 &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Altitude: 26.574 meters &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Heading: 75.6 &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</description>
+	<ExtendedData><SchemaData schemaUrl="#Koeleria_GPS_track_cleaned_points_AS">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="snippet"></SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-123.516546,48.944037,26.57</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>
